@@ -19,8 +19,8 @@ This warehouse contains the following:
 
 ## Table of Contents
 - [Install](#Install)
-- [Quick Start](#Quick Start)
-- [How to contribute](#How to contribute)
+- [Quick Start](#Quick-Start)
+- [How to contribute](#How-to-contribute)
   - [Contributing](#Contributing)
 - [License](#License)
 - [Support](#Support)
