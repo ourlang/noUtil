@@ -11,7 +11,7 @@ func TestConfigLocalFilesystemLogger(t *testing.T) {
 }
 
 func ExampleConfigLocalFilesystemLogger() {
-	ConfigLocalFilesystemLogger("D:/projectLog", "log", time.Second*60*3, time.Second*60)
+	ConfigLocalFilesystemLogger("D:/projectLog", "log", time.Second*60*3, time.Second*60, log.InfoLevel)
 	for {
 		log.Debug("debug info")
 		log.Info("prompt message")

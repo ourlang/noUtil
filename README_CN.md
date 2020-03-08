@@ -4,6 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/ourlang/noUtil)](https://github.com/ourlang/noUtil/stargazers)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ourlang/noUtil)](https://goreportcard.com/report/github.com/ourlang/noUtil)
 [![GitHub license](https://img.shields.io/github/license/ourlang/noUtil)](https://github.com/ourlang/noUtil/blob/master/LICENSE)
+[![GoDoc](https://godoc.org/github.com/ourlang/noUtil?status.svg)](https://godoc.org/github.com/ourlang/noUtil)
 
 [ourLang noUtil](https://github.com/ourlang/noUtil)是我学习GoLang整理的一些常用工具类、面试宝典等资料,希望能给Go社区的发展出一点绵薄之力,帮助更多的人加入Gopher大家庭。
 

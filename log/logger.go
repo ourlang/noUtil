@@ -17,7 +17,8 @@ import (
 //logFileName:文件名称
 //maxAge:文件最大保存时间
 //rotationTime:日志切割时间间隔
-func ConfigLocalFilesystemLogger(logPath string, logFileName string, maxAge time.Duration, rotationTime time.Duration) {
+//logLevel:日志级别
+func ConfigLocalFilesystemLogger(logPath string, logFileName string, maxAge time.Duration, rotationTime time.Duration, logLevel logrus.Level) {
 	baseLogPath := path.Join(logPath, logFileName)
 	writer, err := rotatelogs.New(
 		baseLogPath+"-%Y%m%d%H%M.log",
@@ -36,6 +37,8 @@ func ConfigLocalFilesystemLogger(logPath string, logFileName string, maxAge time
 		logrus.FatalLevel: writer,
 		logrus.PanicLevel: writer,
 	}, &logrus.TextFormatter{DisableColors: true})
+
+	logrus.SetLevel(logLevel)    //设置日志级别
 	logrus.SetReportCaller(true) //将函数名和行数放在日志里面
 	logrus.AddHook(lfHook)
 }
