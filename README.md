@@ -4,6 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/ourlang/noUtil)](https://github.com/ourlang/noUtil/stargazers)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ourlang/noUtil)](https://goreportcard.com/report/github.com/ourlang/noUtil)
 [![GitHub license](https://img.shields.io/github/license/ourlang/noUtil)](https://github.com/ourlang/noUtil/blob/master/LICENSE)
+ourLang noUtil是我学习Go语言整理的一些常用工具类、面试宝典等等,希望能给Go社区的发展出一点绵薄之力,帮助更多的人加入Gopher大家庭。
 
 本仓库包含以下内容:
 - base:Go语言基础
@@ -16,13 +17,21 @@
 - Interview:Go面试题汇总
 
 ## 目录
-[[toc]]
+- [安装](#安装)
+- [快速入门](#快速入门)
+- [如何贡献](#如何贡献)
+  - [贡献者](#贡献者)
+- [使用许可](#使用许可)
+- [支持](#支持)
 
 ## 安装
+```shell script
 go get -u github.com/ourlang/noUtil
-
+```
+## 快速入门
+[noUtil文档指南](http://www.2052.org/go/introduction.html)
 ## 如何贡献
-非常欢迎你的加入! [提一个Issue](https://github.com/ourlang/noUtil/issues/new) 或者提交一个 Pull R equest.
+非常欢迎你的加入! [提一个Issue](https://github.com/ourlang/noUtil/issues/new)
 
 ### 贡献者
 
