@@ -16,7 +16,7 @@ This warehouse contains the following:
 - gorm:GolangORM
 - jsoniter:Json Resolver
 - web:GoWeb Development sample integration
-- [Interview](https://github.com/ourlang/noUtil/tree/master/interview):Golang interview books
+- [Interview:](https://github.com/ourlang/noUtil/tree/master/interview) Golang interview books
 
 ## Table of Contents
 - [Install](#Install)
