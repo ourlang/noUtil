@@ -2,6 +2,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/ourlang/noUtil)](https://github.com/ourlang/noUtil/network)
 [![GitHub issues](https://img.shields.io/github/issues/ourlang/noUtil)](https://github.com/ourlang/noUtil/issues)
 [![GitHub stars](https://img.shields.io/github/stars/ourlang/noUtil)](https://github.com/ourlang/noUtil/stargazers)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ourlang/noUtil)](https://goreportcard.com/report/github.com/ourlang/noUtil)
 [![GitHub license](https://img.shields.io/github/license/ourlang/noUtil)](https://github.com/ourlang/noUtil/blob/master/LICENSE)
 
 本仓库包含以下内容:
@@ -15,7 +16,7 @@
 - Interview:Go面试题汇总
 
 ## 目录
-[TOC]
+[toc]
 
 ## 安装
 go get -u github.com/ourlang/noUtil
