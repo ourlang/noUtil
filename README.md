@@ -30,7 +30,7 @@ This warehouse contains the following:
 go get -u github.com/ourlang/noUtil
 ```
 ## Quick Start
-[noUtilDocument description](http://www.2052.org/go/introduction.html)
+[noUtil Document description](http://www.2052.org/go/introduction.html)
 ## How to contribute
 Welcome to join us! [new Issue](https://github.com/ourlang/noUtil/issues/new)
 
@@ -40,4 +40,4 @@ Welcome to join us! [new Issue](https://github.com/ourlang/noUtil/issues/new)
 [MIT](LICENSE) © OurLang 
 
 ## Support
-If it helps you,Please [Star](https://github.com/ourlang/noUtil/stargazers),Your support is my driving force
+If it helps you,please [Star](https://github.com/ourlang/noUtil/stargazers),your support is my driving force
