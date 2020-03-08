@@ -16,7 +16,7 @@
 - Interview:Go面试题汇总
 
 ## 目录
-[toc]
+[[toc]]
 
 ## 安装
 go get -u github.com/ourlang/noUtil
