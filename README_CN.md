@@ -4,7 +4,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/ourlang/noUtil)](https://github.com/ourlang/noUtil/stargazers)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ourlang/noUtil)](https://goreportcard.com/report/github.com/ourlang/noUtil)
 [![GitHub license](https://img.shields.io/github/license/ourlang/noUtil)](https://github.com/ourlang/noUtil/blob/master/LICENSE)
-ourLang noUtil是我学习Go语言整理的一些常用工具类、面试宝典等等,希望能给Go社区的发展出一点绵薄之力,帮助更多的人加入Gopher大家庭。
+
+[ourLang noUtil](https://github.com/ourlang/noUtil)是我学习GoLang整理的一些常用工具类、面试宝典等资料,希望能给Go社区的发展出一点绵薄之力,帮助更多的人加入Gopher大家庭。
 
 本仓库包含以下内容:
 - base:Go语言基础
@@ -39,4 +40,4 @@ go get -u github.com/ourlang/noUtil
 [MIT](LICENSE) © OurLang 
 
 ## 支持
-如果对你有所帮助,请给个Star,你们的支持就是我前进的动力
+如果对你有所帮助,请给个[Star](https://github.com/ourlang/noUtil/stargazers),你们的支持就是我前进的动力

@@ -1,42 +1,43 @@
-# Golang常用工具类集合
+# Golang Common tool collection
 [![GitHub forks](https://img.shields.io/github/forks/ourlang/noUtil)](https://github.com/ourlang/noUtil/network)
 [![GitHub issues](https://img.shields.io/github/issues/ourlang/noUtil)](https://github.com/ourlang/noUtil/issues)
 [![GitHub stars](https://img.shields.io/github/stars/ourlang/noUtil)](https://github.com/ourlang/noUtil/stargazers)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ourlang/noUtil)](https://goreportcard.com/report/github.com/ourlang/noUtil)
 [![GitHub license](https://img.shields.io/github/license/ourlang/noUtil)](https://github.com/ourlang/noUtil/blob/master/LICENSE)
-ourLang noUtil是我学习Go语言整理的一些常用工具类、面试宝典等等,希望能给Go社区的发展出一点绵薄之力,帮助更多的人加入Gopher大家庭。
 
-本仓库包含以下内容:
-- base:Go语言基础
-- log:Go语言日志处理框架
-- redis:Go语言redis处理工具
-- viper:Go完整配置解决方案应用
-- gorm:Go全功能ORM操作
-- jsoniter:JSON解析器
-- web:GoWeb开发示例整合
-- Interview:Go面试题汇总
+[ourLang noUtil](https://github.com/ourlang/noUtil) is my study of some common tools、interview books and other materials.hoping to give Go community to develop a little modest force to help more people join the Gopher family.
 
-## 目录
-- [安装](#安装)
-- [快速入门](#快速入门)
-- [如何贡献](#如何贡献)
-  - [贡献者](#贡献者)
-- [使用许可](#使用许可)
-- [支持](#支持)
+This warehouse contains the following:
+- base:Golang Base
+- log:Golang Log
+- redis:Golang Redis
+- viper:Golang Configuration Solution
+- gorm:GolangORM
+- jsoniter:Json Resolver
+- web:GoWeb Development sample integration
+- Interview:Golang interview books
 
-## 安装
+## Table of Contents
+- [Install](#Install)
+- [Quick Start](#Quick Start)
+- [How to contribute](#How to contribute)
+  - [Contributing](#Contributing)
+- [License](#License)
+- [Support](#Support)
+
+## Install
 ```shell script
 go get -u github.com/ourlang/noUtil
 ```
-## 快速入门
-[noUtil文档指南](http://www.2052.org/go/introduction.html)
-## 如何贡献
-非常欢迎你的加入! [提一个Issue](https://github.com/ourlang/noUtil/issues/new)
+## Quick Start
+[noUtilDocument description](http://www.2052.org/go/introduction.html)
+## How to contribute
+Welcome to join us! [new Issue](https://github.com/ourlang/noUtil/issues/new)
 
-### 贡献者
+### Contributing
 
-## 使用许可
+## License
 [MIT](LICENSE) © OurLang 
 
-## 支持
-如果对你有所帮助,请给个Star,你们的支持就是我前进的动力
+## Support
+If it helps you,Please [Star](https://github.com/ourlang/noUtil/stargazers),Your support is my driving force
