@@ -34,6 +34,4 @@ func ReadConfigFile(configFilePath, configFileName, configFileType string, confi
 	if err := config.Unmarshal(&configObject); err != nil { // 读取配置文件转化成对应的结构体错误
 		panic(fmt.Errorf("read config file to struct err: %s \n", err))
 	}
-	//控制台打印输出配置文件读取的值
-	fmt.Println("我知道", configObject)
 }
