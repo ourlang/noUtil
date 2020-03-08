@@ -16,7 +16,7 @@
 - gorm:Go全功能ORM操作
 - jsoniter:JSON解析器
 - web:GoWeb开发示例整合
-- Interview:Go面试题汇总
+- [Interview](https://github.com/ourlang/noUtil/tree/master/interview):Go面试题汇总
 
 ## 目录
 - [安装](#安装)
