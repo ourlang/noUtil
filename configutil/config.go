@@ -12,9 +12,8 @@ import (
 //configFilePath:配置文件路径
 //configFileName:配置文件路径下的文件名
 //configFileType:配置文件类型，如JSON, toml, yaml, HCl，
-//configObject:读取到哪个结构体
-func ReadConfigFile(configFilePath, configFileName, configFileType string, configObject interface{}) {
-
+//返回读取的配置数据
+func ReadConfigFile(configFilePath, configFileName, configFileType string) interface{} {
 	config := viper.New()
 	//配置文件名（不带扩展名）
 	config.SetConfigName(configFileName)
@@ -30,8 +29,10 @@ func ReadConfigFile(configFilePath, configFileName, configFileType string, confi
 	if err != nil { // 处理读取配置文件的错误
 		panic(fmt.Errorf("Fatal error config file: %s \n", err))
 	}
-
-	if err := config.Unmarshal(&configObject); err != nil { // 读取配置文件转化成对应的结构体错误
+	//声明一个读取配置文件的map
+	m := make(map[string]interface{})
+	if err := config.Unmarshal(&m); err != nil { // 读取配置文件转化成对应的结构体错误
 		panic(fmt.Errorf("read config file to struct err: %s \n", err))
 	}
+	return m
 }
