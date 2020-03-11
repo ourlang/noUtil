@@ -2,7 +2,6 @@ package configutil
 
 import (
 	"fmt"
-	"github.com/mitchellh/mapstructure"
 	"testing"
 )
 
@@ -15,10 +14,9 @@ func ExampleReadConfigFile() {
 		Password     int
 		DataBaseName string
 	}
-	m := ReadConfigFile("D:/go_project/src/github.com/ourlang/demo/config", "appConfig", "yaml")
-	var config DataBaseConnection
-	mapstructure.Decode(m, &config)
-	fmt.Println(config) //{127.0.0.1 3306 root 123456 go_test}
+	var db DataBaseConnection
+	ReadConfigFile("E:/go_project/SentaSystemManage/config/", "ApplicationConfig", "yaml", &db)
+	fmt.Println(db) //{127.0.0.1 3306 root 123456 go_test}
 }
 
 func TestReadConfigFile(t *testing.T) {
