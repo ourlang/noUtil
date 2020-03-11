@@ -2,8 +2,10 @@
 // Supports reading in JSON, toml, yaml, HCl and Java property configuration files
 package configutil
 
+
 import (
 	"fmt"
+	"github.com/mitchellh/mapstructure"
 	"github.com/spf13/viper"
 )
 
@@ -12,8 +14,8 @@ import (
 //configFilePath:配置文件路径
 //configFileName:配置文件路径下的文件名
 //configFileType:配置文件类型，如JSON, toml, yaml, HCl，
-//返回读取的配置数据
-func ReadConfigFile(configFilePath, configFileName, configFileType string) interface{} {
+//obj:把指定文件的内容读取到对应的结构体
+func ReadConfigFile(configFilePath, configFileName, configFileType string, obj interface{}) {
 	config := viper.New()
 	//配置文件名（不带扩展名）
 	config.SetConfigName(configFileName)
@@ -34,5 +36,5 @@ func ReadConfigFile(configFilePath, configFileName, configFileType string) inter
 	if err := config.Unmarshal(&m); err != nil { // 读取配置文件转化成对应的结构体错误
 		panic(fmt.Errorf("read config file to struct err: %s \n", err))
 	}
-	return m
+	mapstructure.Decode(m, &obj)
 }
