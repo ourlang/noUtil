@@ -1,7 +1,10 @@
+// Copyright 2020 The ourlang Authors. All rights reserved.
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file.
+
 // package configutil is Golang Configuration Solution
 // Supports reading in JSON, toml, yaml, HCl and Java property configuration files
 package configutil
-
 
 import (
 	"fmt"

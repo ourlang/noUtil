@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/ourlang/noUtil)](https://github.com/ourlang/noUtil/stargazers)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ourlang/noUtil)](https://goreportcard.com/report/github.com/ourlang/noUtil)
 [![GitHub license](https://img.shields.io/github/license/ourlang/noUtil)](https://github.com/ourlang/noUtil/blob/master/LICENSE)
-[![GoDoc](https://godoc.org/github.com/ourlang/noUtil?status.svg)](https://godoc.org/github.com/ourlang/noUtil)
+[![GoDoc](https://pkg.go.dev/github.com/ourlang/noUtil?status.svg)](https://pkg.go.dev/github.com/ourlang/noUtil)
 
 [ourLang noUtil](https://github.com/ourlang/noUtil) is my study of some common tools、interview books and other materials.hoping to give Go community to develop a little modest force to help more people join the Gopher family.
 
