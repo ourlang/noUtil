@@ -13,6 +13,9 @@ import (
 )
 
 //Remove duplicate elements from collection
+
+//params: a: slice object，example:[]string, []int, []float64, ...
+//return:  []interface{}: New slice object with duplicate elements removed
 func SliceRemoveDuplicate(a interface{}) (ret []interface{}) {
 	if reflect.TypeOf(a).Kind() != reflect.Slice {
 		fmt.Printf("The parameter passed in is not a slice but %T\n", a)
