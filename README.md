@@ -6,6 +6,8 @@
 [![GitHub license](https://img.shields.io/github/license/ourlang/noUtil)](https://github.com/ourlang/noUtil/blob/master/LICENSE)
 [![GoDoc](https://godoc.org/github.com/ourlang/noUtil?status.svg)](https://pkg.go.dev/github.com/ourlang/noUtil)
 
+[简体中文](https://github.com/ourlang/noUtil/blob/master/README_CN.md) | English
+
 [ourLang noUtil](https://github.com/ourlang/noUtil) is my study of some common tools、interview books and other materials.hoping to give Go community to develop a little modest force to help more people join the Gopher family.
 
 This warehouse contains the following:

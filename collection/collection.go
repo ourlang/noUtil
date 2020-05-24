@@ -8,6 +8,7 @@
 package collection
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 )
@@ -31,4 +32,66 @@ func SliceRemoveDuplicate(a interface{}) (ret []interface{}) {
 		}
 	}
 	return ret
+}
+
+// InsertSlice insert a element to slice in the specified index
+// Note that original slice will not be modified
+func InsertSlice(slice interface{}, index int, value interface{}) (interface{}, error) {
+	// check params
+	v := reflect.ValueOf(slice)
+	if v.Kind() != reflect.Slice {
+		return nil, errors.New("target isn't a slice")
+	}
+	if index < 0 || index > v.Len() || reflect.TypeOf(slice).Elem() != reflect.TypeOf(value) {
+		return nil, errors.New("param is invalid")
+	}
+
+	dst := reflect.MakeSlice(reflect.TypeOf(slice), 0, 0)
+
+	// add the element to the end of slice
+	if index == v.Len() {
+		dst = reflect.AppendSlice(dst, v.Slice(0, v.Len()))
+		dst = reflect.Append(dst, reflect.ValueOf(value))
+		return dst.Interface(), nil
+	}
+
+	dst = reflect.AppendSlice(dst, v.Slice(0, index+1))
+	dst = reflect.AppendSlice(dst, v.Slice(index, v.Len()))
+	dst.Index(index).Set(reflect.ValueOf(value))
+	return dst.Interface(), nil
+}
+
+// DeleteSliceE deletes the specified subscript element from the slice
+// Note that original slice will not be modified
+func DeleteSliceE(slice interface{}, index int) (interface{}, error) {
+	// check params
+	v := reflect.ValueOf(slice)
+	if v.Kind() != reflect.Slice {
+		return nil, errors.New("target isn't a slice")
+	}
+	if v.Len() == 0 || index < 0 || index > v.Len()-1 {
+		return nil, errors.New("param is invalid")
+	}
+
+	dst := reflect.MakeSlice(reflect.TypeOf(slice), 0, 0)
+	dst = reflect.AppendSlice(dst, v.Slice(0, index))
+	dst = reflect.AppendSlice(dst, v.Slice(index+1, v.Len()))
+	return dst.Interface(), nil
+}
+
+// GetEleIndexesSliceE finds all indexes of the specified element in a slice
+func GetEleIndexesSliceE(slice interface{}, value interface{}) ([]int, error) {
+	// check params
+	v := reflect.ValueOf(slice)
+	if v.Kind() != reflect.Slice {
+		return nil, errors.New("target isn't a slice")
+	}
+
+	var indexes []int
+	for i := 0; i < v.Len(); i++ {
+		if v.Index(i).Interface() == value {
+			indexes = append(indexes, i)
+		}
+	}
+	return indexes, nil
 }

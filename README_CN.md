@@ -6,6 +6,8 @@
 [![GitHub license](https://img.shields.io/github/license/ourlang/noUtil)](https://github.com/ourlang/noUtil/blob/master/LICENSE)
 [![GoDoc](https://godoc.org/github.com/ourlang/noUtil?status.svg)](https://godoc.org/github.com/ourlang/noUtil)
 
+[English](https://github.com/ourlang/noUtil/blob/master/README.md) | 简体中文
+
 [ourLang noUtil](https://github.com/ourlang/noUtil)是我学习GoLang整理的一些常用工具类、面试宝典等资料,希望能给Go社区的发展出一点绵薄之力,帮助更多的人加入Gopher大家庭。
 
 本仓库包含以下内容:
