@@ -95,3 +95,85 @@ func GetEleIndexesSliceE(slice interface{}, value interface{}) ([]int, error) {
 	}
 	return indexes, nil
 }
+
+//Returns true if this array、slice、map contains the specified element.
+//More formally, returns true if and only if this list contains
+//at least one element e such that
+
+//@params:list---> slice、array、map，example:[]string, []int, []float64, map[string]string……
+//@params:e--->An element in a slice array map.example:"hello",123……
+func Contains(list interface{}, e interface{}) (bool, error) {
+	listType := reflect.TypeOf(list).Kind()
+	listValue := reflect.ValueOf(list)
+	if listType == reflect.Slice || listType == reflect.Array || listType == reflect.Map {
+		switch listType {
+		case reflect.Slice, reflect.Array:
+			for i := 0; i < listValue.Len(); i++ {
+				if listValue.Index(i).Interface() == e {
+					return true, nil
+				}
+			}
+		case reflect.Map:
+			if listValue.MapIndex(reflect.ValueOf(e)).IsValid() {
+				return true, nil
+			}
+		}
+
+		return false, errors.New(reflect.ValueOf(e).String() + " not in list")
+	} else {
+		return false, errors.New(listValue.String() + " It is not any type in array, slice or map ")
+	}
+}
+
+//求并集
+func Union(slice1, slice2 []string) []string {
+	m := make(map[string]int)
+	for _, v := range slice1 {
+		m[v]++
+	}
+
+	for _, v := range slice2 {
+		times, _ := m[v]
+		if times == 0 {
+			slice1 = append(slice1, v)
+		}
+	}
+	return slice1
+}
+
+//求交集
+func Intersect(slice1, slice2 []string) []string {
+	m := make(map[string]int)
+	nn := make([]string, 0)
+	for _, v := range slice1 {
+		m[v]++
+	}
+
+	for _, v := range slice2 {
+		times, _ := m[v]
+		if times == 1 {
+			nn = append(nn, v)
+		}
+	}
+	return nn
+}
+
+//求差集 slice1-并集
+func Difference(slice1, slice2 []string) []string {
+	m := make(map[string]int)
+	nn := make([]string, 0)
+	//交集 两个相同3个字段[]string a,b,c
+	inter := Intersect(slice1, slice2)
+	for _, v := range inter {
+		m[v]++
+	}
+
+	for _, value := range slice1 {
+		//m是交集
+		times, _ := m[value]
+		if times == 0 {
+			nn = append(nn, value)
+		}
+	}
+	return nn
+}
