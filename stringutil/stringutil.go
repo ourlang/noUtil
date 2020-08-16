@@ -9,11 +9,12 @@ package stringutil
 import (
 	"encoding/json"
 	"fmt"
+	"math"
 	"math/rand"
 	"reflect"
+	"regexp"
 	"strconv"
 	"strings"
-	"time"
 )
 
 /*
@@ -154,13 +155,114 @@ func String(obj interface{}) string {
 	return fmt.Sprintf("%v", obj)
 }
 
-func RandomString(length int) string {
-	str := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-	bytes := []byte(str)
-	result := make([]byte, 0)
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	for i := 0; i < length; i++ {
-		result = append(result, bytes[r.Intn(len(bytes))])
+//Generate random string
+func GetRandomString(n int) string {
+	const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$%^&*()+[]{}/<>;:=.,?"
+	b := make([]byte, n)
+	for i := range b {
+		b[i] = letterBytes[rand.Int63()%int64(len(letterBytes))]
 	}
-	return string(result)
+	return string(b)
+}
+
+//Generate random captcha
+func GetRandomInt(n int) string {
+	const letterBytes = "0123456789"
+	b := make([]byte, n)
+	for i := range b {
+		b[i] = letterBytes[rand.Int63()%int64(len(letterBytes))]
+	}
+	return string(b)
+}
+
+//Amount in words
+func AmountToCN(pMoney float64, pRound bool) string {
+	var numberUpper = []string{"壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖", "零"}
+	var unit = []string{"分", "角", "圆", "拾", "佰", "仟", "万", "拾", "佰", "仟", "亿", "拾", "佰", "仟"}
+	var regex = [][]string{
+		{"零拾", "零"}, {"零佰", "零"}, {"零仟", "零"}, {"零零零", "零"}, {"零零", "零"},
+		{"零角零分", "整"}, {"零分", "整"}, {"零角", "零"}, {"零亿零万零元", "亿元"},
+		{"亿零万零元", "亿元"}, {"零亿零万", "亿"}, {"零万零元", "万元"}, {"万零元", "万元"},
+		{"零亿", "亿"}, {"零万", "万"}, {"拾零圆", "拾元"}, {"零圆", "元"}, {"零零", "零"}}
+	str, digitUpper, unitLen, round := "", "", 0, 0
+	if pMoney == 0 {
+		return "零"
+	}
+	if pMoney < 0 {
+		str = "负"
+		pMoney = math.Abs(pMoney)
+	}
+	if pRound {
+		round = 2
+	} else {
+		round = 1
+	}
+	digitByte := []byte(strconv.FormatFloat(pMoney, 'f', round+1, 64)) //注意币种四舍五入
+	unitLen = len(digitByte) - round
+
+	for _, v := range digitByte {
+		if unitLen >= 1 && v != 46 {
+			s, _ := strconv.ParseInt(string(v), 10, 0)
+			if s != 0 {
+				digitUpper = numberUpper[s-1]
+
+			} else {
+				digitUpper = "零"
+			}
+			str = str + digitUpper + unit[unitLen-1]
+			unitLen = unitLen - 1
+		}
+	}
+	for i := range regex {
+		reg := regexp.MustCompile(regex[i][0])
+		str = reg.ReplaceAllString(str, regex[i][1])
+	}
+	if string(str[0:3]) == "元" {
+		str = string(str[3:])
+	}
+	if string(str[0:3]) == "零" {
+		str = string(str[3:])
+	}
+	return str
+}
+
+func HideStar(str string) (result string) {
+	if str == "" {
+		return "***"
+	}
+	if strings.Contains(str, "@") {
+		res := strings.Split(str, "@")
+		if len(res[0]) < 3 {
+			resString := "***"
+			result = resString + "@" + res[1]
+		} else {
+			res2 := SubString(str, 0, 3)
+			resString := res2 + "***"
+			result = resString + "@" + res[1]
+		}
+		return result
+	} else {
+		reg := `^\d{9}$`
+		rgx := regexp.MustCompile(reg)
+		mobileMatch := rgx.MatchString(str)
+		if mobileMatch {
+			result = SubString(str, 0, 3) + "****" + SubString(str, 7, 11)
+		} else {
+
+			nameRune := []rune(str)
+			lens := len(nameRune)
+			if lens <= 1 {
+				result = "***"
+			} else if lens == 2 {
+				result = string(nameRune[:1]) + "*"
+			} else if lens == 3 {
+				result = string(nameRune[:1]) + "*" + string(nameRune[2:3])
+			} else if lens == 4 {
+				result = string(nameRune[:1]) + "**" + string(nameRune[lens-1:lens])
+			} else if lens > 4 {
+				result = string(nameRune[:2]) + "***" + string(nameRune[lens-2:lens])
+			}
+		}
+		return
+	}
 }

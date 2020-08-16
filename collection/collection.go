@@ -175,3 +175,39 @@ func Difference(slice1, slice2 []string) []string {
 	}
 	return nn
 }
+
+func StructToMap(obj interface{}) (result map[string]interface{}, err error) {
+	k := reflect.TypeOf(obj)
+	v := reflect.ValueOf(obj)
+	if k.Kind() != reflect.Ptr {
+		err = fmt.Errorf("type must be a pointer")
+		return
+	}
+
+	if k.Elem().Kind() != reflect.Struct {
+		err = fmt.Errorf("element type must be a struct")
+		return
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = fmt.Errorf("%v", r)
+			return
+		}
+	}()
+	result = make(map[string]interface{})
+	for i := 0; i < k.Elem().NumField(); i++ {
+		name := k.Elem().Field(i).Name
+		field := v.Elem().Field(i)
+		switch name {
+		case "ID", "CreatedAt", "UpdatedAt", "DeletedAt":
+			continue
+		}
+		switch field.Kind() {
+		case reflect.Slice, reflect.Struct, reflect.Ptr:
+			continue
+		default:
+			result[name] = field.Interface()
+		}
+	}
+	return
+}
