@@ -125,7 +125,7 @@ func Contains(list interface{}, e interface{}) (bool, error) {
 	}
 }
 
-//求并集
+//Gets the union of two slices
 func Union(slice1, slice2 []string) []string {
 	m := make(map[string]int)
 	for _, v := range slice1 {
@@ -141,7 +141,7 @@ func Union(slice1, slice2 []string) []string {
 	return slice1
 }
 
-//求交集
+//Get the intersection of two slices
 func Intersect(slice1, slice2 []string) []string {
 	m := make(map[string]int)
 	nn := make([]string, 0)
@@ -158,18 +158,16 @@ func Intersect(slice1, slice2 []string) []string {
 	return nn
 }
 
-//求差集 slice1-并集
+//Get the difference set of two slices
 func Difference(slice1, slice2 []string) []string {
 	m := make(map[string]int)
 	nn := make([]string, 0)
-	//交集 两个相同3个字段[]string a,b,c
 	inter := Intersect(slice1, slice2)
 	for _, v := range inter {
 		m[v]++
 	}
 
 	for _, value := range slice1 {
-		//m是交集
 		times, _ := m[value]
 		if times == 0 {
 			nn = append(nn, value)

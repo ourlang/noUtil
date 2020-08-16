@@ -50,3 +50,16 @@ func TestGetEleIndexesSliceE(t *testing.T) {
 	indexSlice, err := GetEleIndexesSliceE(arr, "hi")
 	fmt.Println(indexSlice, err)
 }
+
+func TestDifference(t *testing.T) {
+	slice1 := []string{"hello", "china", "good"}
+	slice2 := []string{"hello", "china", "happy"}
+	difSlice := Difference(slice1, slice2)
+	fmt.Println(difSlice) //[good]
+
+	unionSlice := Union(slice1, slice2)
+	fmt.Println(unionSlice) //[hello china good happy]
+
+	intersectionSlice := Intersect(slice1, slice2)
+	fmt.Println(intersectionSlice) //[hello china]
+}

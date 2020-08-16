@@ -12,11 +12,14 @@ import (
 	"github.com/spf13/viper"
 )
 
-//读取配置文件函数(需要通过反射实现)
+//Read configuration file function (need to be implemented by reflection)
 //
 //configFilePath:配置文件路径
+//
 //configFileName:配置文件路径下的文件名
+//
 //configFileType:配置文件类型，如JSON, toml, yaml, HCl，
+//
 //obj:把指定文件的内容读取到对应的结构体
 func ReadConfigFile(configFilePath, configFileName, configFileType string, obj interface{}) {
 	config := viper.New()

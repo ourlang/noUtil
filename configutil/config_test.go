@@ -6,7 +6,7 @@ import (
 )
 
 func ExampleReadConfigFile() {
-	//定义接收配置文件的结构体
+	//Defines the structure of the receiving profile
 	type DataBaseConnection struct {
 		IpAddress    string
 		Port         int
