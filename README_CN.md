@@ -33,7 +33,7 @@
 go get -u github.com/ourlang/noUtil
 ```
 ## 快速入门
-[noUtil文档指南](http://www.2052.org/go/introduction.html)
+[noUtil文档指南](http://www.lsdcloud.com/go/introduction.html)
 ## 如何贡献
 非常欢迎你的加入! [提一个Issue](https://github.com/ourlang/noUtil/issues/new)
 

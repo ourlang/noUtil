@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestStringBuilder_AppendStrings(t *testing.T) {
+func ExampleStringBuilder_AppendStrings() {
 	s1 := "hello"
 	s2 := "world"
 	builder := NewStringBuilder()
@@ -14,7 +14,7 @@ func TestStringBuilder_AppendStrings(t *testing.T) {
 	fmt.Println(builder.ToString())
 }
 
-func TestStringBuilder_Clear(t *testing.T) {
+func ExampleStringBuilder_Clear() {
 	s1 := "hello"
 	s2 := "world"
 	builder := NewStringBuilder()
@@ -24,7 +24,7 @@ func TestStringBuilder_Clear(t *testing.T) {
 	fmt.Println("builder clear after ", builder.ToString())
 }
 
-func TestSubString(t *testing.T) {
+func ExampleSubString() {
 	str := "helloWorld"
 	newStr := SubString(str, 2)
 	//lloWorld
@@ -42,4 +42,13 @@ func TestString(t *testing.T) {
 	newMap["our"] = "lang"
 	//{"good":"bi","hello":"world","our":"lang"}
 	fmt.Println(String(newMap))
+}
+
+func ExampleGetRandomString() {
+	randomString16 := GetRandomString(16)
+	//VFH[x}847imd{mV#
+	fmt.Println(randomString16)
+	randomString32 := GetRandomString(32)
+	//=n[gM?H06p.kC[sM8#?qFJ/;q,)<5!de
+	fmt.Println(randomString32)
 }

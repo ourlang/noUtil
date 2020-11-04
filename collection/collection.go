@@ -198,10 +198,6 @@ func StructToMap(obj interface{}) (result map[string]interface{}, err error) {
 	for i := 0; i < k.Elem().NumField(); i++ {
 		name := k.Elem().Field(i).Name
 		field := v.Elem().Field(i)
-		switch name {
-		case "ID", "CreatedAt", "UpdatedAt", "DeletedAt":
-			continue
-		}
 		switch field.Kind() {
 		case reflect.Slice, reflect.Struct, reflect.Ptr:
 			continue

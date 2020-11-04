@@ -51,7 +51,7 @@ func TestGetEleIndexesSliceE(t *testing.T) {
 	fmt.Println(indexSlice, err)
 }
 
-func TestDifference(t *testing.T) {
+func ExampleDifference() {
 	slice1 := []string{"hello", "china", "good"}
 	slice2 := []string{"hello", "china", "happy"}
 	difSlice := Difference(slice1, slice2)
@@ -62,4 +62,27 @@ func TestDifference(t *testing.T) {
 
 	intersectionSlice := Intersect(slice1, slice2)
 	fmt.Println(intersectionSlice) //[hello china]
+}
+
+func ExampleStructToMap() {
+	type Student struct {
+		Name    string
+		Age     int
+		Address string
+		Email   string
+	}
+	stu := Student{
+		Name:    "ourlang",
+		Age:     30,
+		Address: "chengdu",
+		Email:   "ourlang@foxmail.com",
+	}
+	tempMap, err := StructToMap(&stu)
+	if err != nil {
+		panic(err.Error())
+	}
+	for s, v := range tempMap {
+		fmt.Println(s, v)
+	}
+
 }

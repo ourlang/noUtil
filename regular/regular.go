@@ -40,9 +40,6 @@ func CheckPasswordLevel(ps string) error {
 	if b, err := regexp.MatchString(az, ps); !b || err != nil {
 		return fmt.Errorf("password need A_Z :%v", err)
 	}
-	//if b, err := regexp.MatchString(symbol, ps); !b || err != nil {
-	//	return fmt.Errorf("password need symbol :%v", err)
-	//}
 	return nil
 }
 

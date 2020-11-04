@@ -33,7 +33,7 @@ This warehouse contains the following:
 go get -u github.com/ourlang/noUtil
 ```
 ## Quick Start
-[noUtil Document description](http://www.2052.org/go/introduction.html)
+[noUtil Document description](http://www.lsdcloud.com/go/introduction.html)
 ## How to contribute
 Welcome to join us! [new Issue](https://github.com/ourlang/noUtil/issues/new)
 
